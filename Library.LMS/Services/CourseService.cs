@@ -58,6 +58,11 @@ namespace Library.LMS.Services
         public void removePerson(Course course, Person person)
         {
             course.Roster.Remove(person);
+            course.StudentGrades.Remove((Student)person);
+            foreach(var a in course.Assignments)
+            {
+                a.RemoveGrade((Student)person);
+            }
         }
 
         public void AddModule(Course course, Module module)

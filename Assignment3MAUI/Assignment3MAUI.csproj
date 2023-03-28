@@ -52,4 +52,16 @@
 	  <ProjectReference Include="..\Library.LMS\Library.LMS.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Student.xaml.cs">
+	    <DependentUpon>Student.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Student.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

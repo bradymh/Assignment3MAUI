@@ -1,24 +1,22 @@
-﻿namespace Assignment3MAUI;
+﻿using Library.LMS.Models;
+
+namespace Assignment3MAUI;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+    private void StudentLogin(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new StudentPage());
+    }
+
+	private async void TeacherLogin(object sender, EventArgs e)
 	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		await DisplayAlert("Alert", Title, "OK");
 	}
 }
 
