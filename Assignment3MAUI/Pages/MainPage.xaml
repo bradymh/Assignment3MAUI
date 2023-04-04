@@ -11,35 +11,33 @@
             VerticalOptions="Center">
 
             <Label
-                Text="Welcome!"
+                Text="Learning Management System"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Welcome to the Learning Managment System"
+                Text="Please select a user"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width=".5*"/>
-                    <ColumnDefinition Width=".5*"/>
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height=".5*"/>
+                    <RowDefinition Height=".5*"/>
+                </Grid.RowDefinitions>
                 <Button
-                    Grid.Column="0"
-                x:Name="TeacherBtn"
-                Text="Teacher Login"
-                Clicked="TeacherLogin"
-                HorizontalOptions="Center" />
+                    Grid.Row="0"
+                    x:Name="TeacherBtn"
+                    Text="Teacher Login"
+                    Clicked="TeacherLogin"
+                    HorizontalOptions="Center" />
                 <Button
-                    Grid.Column="1"
-                x:Name="StudentBtn"
-                Text="Student Login"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="StudentLogin"
-                HorizontalOptions="Center" />
+                    Grid.Row="1"
+                    x:Name="StudentBtn"
+                    Text="Student Login"
+                    Clicked="StudentLogin"
+                    HorizontalOptions="Center" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>

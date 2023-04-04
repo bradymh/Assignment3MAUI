@@ -53,13 +53,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Student.xaml.cs">
+	  <Compile Update="Pages\Student.xaml.cs">
 	    <DependentUpon>Student.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Student.xaml">
+	  <MauiXaml Update="Pages\Student.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\UserSelectPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

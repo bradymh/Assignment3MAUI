@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.LMS.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -11,22 +12,21 @@ namespace Library.LMS.ViewModel
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        //public ObservableCollection<SupportTicket> SupportTickets { get; set; }
-
-        //private SupportTicket selectedTicket;
+        public CourseService courseService { get; private set; }
+        public PersonService personService { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public MainViewModel()
+        public MainViewModel(CourseService courseService, PersonService personService)
         {
-            //SupportTickets = new ObservableCollection<SupportTicket>();
+            this.courseService = courseService;
+            this.personService = personService;
         }
 
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
         
     }
 }

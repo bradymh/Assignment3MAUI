@@ -1,16 +1,19 @@
 using Library.LMS.Models;
+using Library.LMS.ViewModel;
 
 namespace Assignment3MAUI;
 
 public partial class StudentPage : ContentPage
 {
-	public StudentPage()
-	{
-		InitializeComponent();
-	}
+	private StudentViewModel viewModel;
+
 	public StudentPage(Student student)
 	{
 		InitializeComponent();
-
+		viewModel = new StudentViewModel();
+		BindingContext = viewModel;
 	}
+
+
+	
 }

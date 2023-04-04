@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Library.LMS.Services
 {
@@ -12,6 +13,10 @@ namespace Library.LMS.Services
         private List<Person> people = new List<Person>();
 
         public PersonService() { }
+        public PersonService(PersonService service)
+        {
+            this.people = service.people;
+        }
 
         public void AddPerson(Person person)
         {
@@ -50,6 +55,32 @@ namespace Library.LMS.Services
             foreach (Person person in people)
             {
                 if (person.Name.Contains(name))
+                {
+                    list.Add(person);
+                }
+            }
+            return list;
+        }
+
+        public List<Person> ListStudents()
+        {
+            List<Person> list = new List<Person>();
+            foreach (Person person in people)
+            {
+                if (person is Student)
+                {
+                    list.Add(person);
+                }
+            }
+            return list;
+        }
+
+        public List<Person> ListTeachers()
+        {
+            List<Person> list = new List<Person>();
+            foreach (Person person in people)
+            {
+                if (person is Instructor || person is TA)
                 {
                     list.Add(person);
                 }

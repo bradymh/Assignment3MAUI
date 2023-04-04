@@ -13,6 +13,10 @@ namespace Library.LMS.Services
         private List<Course> courses = new List<Course>();
         
         public CourseService() { }
+        public CourseService(CourseService service)
+        {
+            this.courses = service.courses;
+        }
 
         public void AddCourse(Course course) 
         { 
