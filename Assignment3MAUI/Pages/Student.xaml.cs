@@ -10,7 +10,7 @@ public partial class StudentPage : ContentPage
 	public StudentPage(Student student)
 	{
 		InitializeComponent();
-		viewModel = new StudentViewModel();
+		viewModel = new StudentViewModel(student);
 		BindingContext = viewModel;
 	}
 

@@ -24,7 +24,7 @@ namespace Library.LMS.ViewModel
             get { return _pageTitle; }
             set
             {
-                _pageTitle = "Signed in as: " + value;
+                _pageTitle = value;
                 OnPropertyChanged(nameof(PageTitle));
             }
         }

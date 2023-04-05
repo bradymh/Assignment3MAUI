@@ -4,7 +4,8 @@
              x:Class="Assignment3MAUI.Pages.UserSelectPage"
              Title="{Binding PageTitle}">
     <VerticalStackLayout>
-        <ListView ItemsSource="{Binding People}">
+        <ListView ItemsSource="{Binding People}"
+                  ItemSelected="SelectUser">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -16,6 +17,15 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        <Button
+            x:Name="LoginBtn"
+            Text="Login"
+            Clicked="Login"
+            HorizontalOptions="Center" />
+        <Button
+            x:Name="NewUserBtn"
+            Text="New User"
+            Clicked="CreateNewUser"
+            HorizontalOptions="Center"/>
     </VerticalStackLayout>
 </ContentPage>

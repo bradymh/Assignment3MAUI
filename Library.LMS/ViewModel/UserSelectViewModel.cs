@@ -28,7 +28,7 @@ namespace Library.LMS.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private bool StudentOrteacher; //true if student, false if teacher
+        public bool StudentOrteacher; //true if student, false if teacher
         public UserSelectViewModel(bool studentorteacher, CourseService Cservice, PersonService Pservice) 
         {
             StudentOrteacher = studentorteacher;
@@ -37,9 +37,15 @@ namespace Library.LMS.ViewModel
             if (StudentOrteacher)
             {
                 PageTitle = "Select a Student";
+                People = new ObservableCollection<Person>(GetStudents());
+                OnPropertyChanged(nameof(People));
             }
-            else PageTitle = "Select a Teacher";
-            People = new ObservableCollection<Person>(GetStudents());
+            else
+            {
+                PageTitle = "Select a Teacher";
+                People = new ObservableCollection<Person>(GetTeachers());
+                OnPropertyChanged(nameof(People));
+            }
         }
 
 
