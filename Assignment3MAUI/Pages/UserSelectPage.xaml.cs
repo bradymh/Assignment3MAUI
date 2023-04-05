@@ -34,6 +34,10 @@ public partial class UserSelectPage : ContentPage
 
 	public void Login(object sender, EventArgs e)
 	{
+		if(user == null)
+		{
+			return;
+		}
 		if(user is Student)
 		{
 			Navigation.PushAsync(new StudentPage(user as Student, viewModel.courseService, viewModel.personService));
