@@ -52,7 +52,7 @@ namespace Library.LMS.ViewModel
         string? _pageTitle;
         public string PageTitle
         {
-            get { return _pageTitle; }
+            get { return _pageTitle ?? string.Empty; }
             private set
             {
                 _pageTitle = value;

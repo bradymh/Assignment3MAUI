@@ -36,17 +36,17 @@ public partial class UserSelectPage : ContentPage
 	{
 		if(user is Student)
 		{
-			Navigation.PushAsync(new StudentPage(user as Student));
+			Navigation.PushAsync(new StudentPage(user as Student, viewModel.courseService, viewModel.personService));
 		}
-		//else if (user is Instructor)
-		//{
-		//	Navigation.PushAsync();
-		//}
+		else
+		{
+			Navigation.PushAsync(new TeacherPage(user, viewModel.courseService, viewModel.personService));
+		}
 	}
 
 	public async void CreateNewUser(object sender, EventArgs e)
 	{
-		await Navigation.PushModalAsync(new UserCreationPage(viewModel.StudentOrteacher, viewModel.personService));
+		await Navigation.PushAsync(new UserCreationPage(viewModel.StudentOrteacher, viewModel.personService));
 		OnPropertyChanged(nameof(viewModel.People));
 	}
 

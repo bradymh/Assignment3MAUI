@@ -30,18 +30,21 @@ namespace Library.LMS.ViewModel
         {
             Student student = new Student(Name,Class);
             personService.AddPerson(student);
+            OnPropertyChanged(nameof(personService));
         }
 
         public void CreateInstructor(string Name, string Class)
         {
             Instructor instructor = new Instructor(Name,Class);
             personService.AddPerson(instructor);
+            OnPropertyChanged(nameof(personService));
         }
 
         public void CreateTA(string Name, string Class)
         {
             TA ta = new TA(Name,Class);
             personService.AddPerson(ta);
+            OnPropertyChanged(nameof(personService));
         }
     }
 }

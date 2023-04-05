@@ -15,6 +15,9 @@ namespace Library.LMS.Models
         private string? _code;
         public string Code { get { return _code ?? string.Empty; } private set { _code = value; } }
 
+        private string? _semester;
+        public string Semester { get { return _semester ?? string.Empty; } set { _semester = value; } }
+
         private string? _name;
         public string Name { get { return _name ?? string.Empty;} set { _name = value; } }
 

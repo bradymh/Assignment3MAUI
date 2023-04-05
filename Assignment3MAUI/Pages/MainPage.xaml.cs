@@ -12,9 +12,9 @@ public partial class MainPage : ContentPage
 	
 	public MainPage(CourseService Cservice, PersonService Pservice)
 	{
+		InitializeComponent();
 		viewModel = new MainViewModel(Cservice, Pservice);
 		this.BindingContext = viewModel;
-		InitializeComponent();
 	}
 
     private void StudentLogin(object sender, EventArgs e)

@@ -12,6 +12,7 @@ public partial class App : Application
         CourseService courseService = new CourseService();
         PersonService personService = new PersonService();
 		personService.AddPerson(new Student("brady", "Junior"));
+		personService.AddPerson(new Instructor("what", "unoriginal"));
 
 
         MainPage = new NavigationPage(new MainPage(courseService, personService));

@@ -9,21 +9,25 @@ using System.Threading.Tasks;
 
 namespace Library.LMS.ViewModel
 {
-    public class StudentViewModel : INotifyPropertyChanged
+    public class TeacherViewModel : INotifyPropertyChanged
     {
         public CourseService courseService { get; private set; }
         public PersonService personService { get; private set; }
-        private Student student;
-
+        private Person user;
         public event PropertyChangedEventHandler? PropertyChanged;
-        public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice) 
+
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            this.student = student;
-            PageTitle = "Signed in as: " + student.Name;
-            courseService = Cservice;
-            personService = Pservice;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public TeacherViewModel(Person user, CourseService Cservice, PersonService Pservice) 
+        { 
+            this.user = user;
+            courseService = Cservice;
+            personService = Pservice;
+            PageTitle = "Signed in as " + user.Name;
+        }
 
         string? _pageTitle;
         public string PageTitle
@@ -34,11 +38,6 @@ namespace Library.LMS.ViewModel
                 _pageTitle = value;
                 OnPropertyChanged(nameof(PageTitle));
             }
-        }
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
