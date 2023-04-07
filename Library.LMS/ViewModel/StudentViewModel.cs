@@ -13,7 +13,7 @@ namespace Library.LMS.ViewModel
     {
         public CourseService courseService { get; private set; }
         public PersonService personService { get; private set; }
-        private Student student;
+        public Student student { get; private set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice) 
@@ -34,6 +34,19 @@ namespace Library.LMS.ViewModel
                 _pageTitle = value;
                 OnPropertyChanged(nameof(PageTitle));
             }
+        }
+
+        private string _studentinfo;
+        public string StudentInfo { get { return _studentinfo; } set
+            {
+                _studentinfo = $"ID: {student.Id}\nGPA: {student.GPA}";
+                OnPropertyChanged(nameof(StudentInfo));
+            }
+        }
+
+        public string StudentInfoGet()
+        {
+            return $"ID: {student.Id}\nClassification: {student.Classification}\nGPA: {student.GPA}";
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

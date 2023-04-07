@@ -15,6 +15,14 @@ public partial class StudentPage : ContentPage
 		BindingContext = viewModel;
 	}
 
+	public async void SignOut(object sender, EventArgs e)
+	{
+		await Navigation.PopToRootAsync();
+	}
 
+    private async void ShowProfile(object sender, EventArgs e)
+    {
+		await DisplayAlert(viewModel.student.Name, viewModel.StudentInfoGet(),"OK");
+    }
 	
 }

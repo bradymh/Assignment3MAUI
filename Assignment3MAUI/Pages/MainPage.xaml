@@ -21,8 +21,8 @@
                 SemanticProperties.HeadingLevel="Level2"
                 FontSize="18"
                 HorizontalOptions="Center" />
-            <Grid>
-                <Grid.RowDefinitions>
+            <Grid RowSpacing="10">
+                <Grid.RowDefinitions>                    
                     <RowDefinition Height=".5*"/>
                     <RowDefinition Height=".5*"/>
                 </Grid.RowDefinitions>

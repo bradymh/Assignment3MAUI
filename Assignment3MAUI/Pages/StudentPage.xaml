@@ -2,11 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment3MAUI.StudentPage"
-             Title="{Binding PageTitle}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="{Binding PageTitle}"
+             NavigationPage.HasBackButton="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout Grid.Row="0"
+                               Grid.Column="1"
+                               HorizontalOptions="End">
+            <Button
+                Text="Profile"
+                Clicked="ShowProfile"/>
+            <Button
+                Text="Edit Profile"
+                Clicked="EditProfile"/>
+            <Button Text="Sign Out"
+                    Clicked="SignOut"/>
+        </HorizontalStackLayout>
+        <VerticalStackLayout>
+
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
+
 </ContentPage>
