@@ -1,6 +1,7 @@
 using Library.LMS.Models;
 using Library.LMS.Services;
 using Library.LMS.ViewModel;
+using Microsoft.Maui.Controls;
 
 namespace Assignment3MAUI;
 
@@ -25,4 +26,8 @@ public partial class StudentPage : ContentPage
 		await DisplayAlert(viewModel.student.Name, viewModel.StudentInfoGet(),"OK");
     }
 	
+	private async void EditProfile(object sender, EventArgs e)
+	{
+		
+	}
 }
