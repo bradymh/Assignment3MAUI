@@ -26,10 +26,15 @@
             <Button Text="Sign Out"
                     Clicked="SignOut"/>
         </HorizontalStackLayout>
-        <VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="0">
+            <Button
+                Text="Refresh"
+                Clicked="Refresh"/>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="1">
 
         </VerticalStackLayout>
-        <VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="2">
 
         </VerticalStackLayout>
     </Grid>

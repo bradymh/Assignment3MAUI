@@ -3,29 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Assignment3MAUI.Pages.UserSelectPage"
              Title="{Binding PageTitle}">
-    <VerticalStackLayout>
-        <ListView ItemsSource="{Binding People}"
-                  ItemSelected="SelectUser">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Label Text="{Binding Name}" />
-                            <Label Text="{Binding Id}" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <Button
+    
+        <Grid RowSpacing="20"
+              Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+            </Grid.RowDefinitions>
+            <ListView 
+                x:Name="PeopleList"
+                ItemsSource="{Binding People}"
+                ItemSelected="SelectUser"
+                Grid.Row="0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Id}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                Grid.Row="1"
             x:Name="LoginBtn"
             Text="Login"
             Clicked="Login"
             HorizontalOptions="Center" />
-        <Button
+            <Button
+                Grid.Row="2"
             x:Name="NewUserBtn"
             Text="New User"
             Clicked="CreateNewUser"
             HorizontalOptions="Center"/>
-    </VerticalStackLayout>
+        </Grid>
+        
 </ContentPage>

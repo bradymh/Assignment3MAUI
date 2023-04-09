@@ -5,7 +5,34 @@
                x:Class="Assignment3MAUI.Pages.ProfilePopUp">
 
     <VerticalStackLayout>
-        <Label Text="This is a very important message!" />
+        <Label Text="Edit Profile"
+               FontSize="Header"/>
+        <Label Text="New Name:"/>
+        <Entry
+            x:Name="NameEntry"
+            Placeholder="Enter Name"
+            Completed="NameEntry_Completed"
+            TextChanged="NameEntry_TextChanged"/>
+        <Label Text="New Classification"/>
+        <Entry
+            x:Name="ClassificationEntry"
+            Placeholder="Enter Classification"
+            Completed="ClassificationEntry_Completed"
+            TextChanged="ClassificationEntry_TextChanged"/>
+        <HorizontalStackLayout
+            Padding="10,10">
+            <Button
+                x:Name="ChangeBtn"
+                Text="Change"
+                Clicked="ChangeBtn_Clicked"
+                HorizontalOptions="Center"/>
+            <Button
+                x:Name="CancelBtn"
+                Text="Cancel"
+                Clicked="CancelBtn_Clicked"
+                HorizontalOptions="Center"/>
+        </HorizontalStackLayout>
+            
     </VerticalStackLayout>
 
 </toolkit:Popup>

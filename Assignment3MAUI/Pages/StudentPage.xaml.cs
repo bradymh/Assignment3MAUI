@@ -1,14 +1,18 @@
+using Assignment3MAUI.Pages;
+using CommunityToolkit.Maui.Views;
 using Library.LMS.Models;
 using Library.LMS.Services;
 using Library.LMS.ViewModel;
 using Microsoft.Maui.Controls;
+
+using System.Xml.Linq;
+using System;
 
 namespace Assignment3MAUI;
 
 public partial class StudentPage : ContentPage
 {
 	private StudentViewModel viewModel;
-
 	public StudentPage(Student student, CourseService Cservice, PersonService Pservice)
 	{
 		InitializeComponent();
@@ -16,7 +20,7 @@ public partial class StudentPage : ContentPage
 		BindingContext = viewModel;
 	}
 
-	public async void SignOut(object sender, EventArgs e)
+	private async void SignOut(object sender, EventArgs e)
 	{
 		await Navigation.PopToRootAsync();
 	}
@@ -26,8 +30,14 @@ public partial class StudentPage : ContentPage
 		await DisplayAlert(viewModel.student.Name, viewModel.StudentInfoGet(),"OK");
     }
 	
-	private async void EditProfile(object sender, EventArgs e)
+	private void EditProfile(object sender, EventArgs e)
 	{
-		
+		var popup = new ProfilePopUp(viewModel.student);
+        this.ShowPopup(popup);
 	}
+
+    private void Refresh(object sender, EventArgs e)
+    {
+		this.BindingContext = new StudentViewModel(viewModel.student,viewModel.courseService,viewModel.personService);
+    }
 }

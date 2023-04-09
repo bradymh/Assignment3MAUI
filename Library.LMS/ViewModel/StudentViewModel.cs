@@ -19,11 +19,10 @@ namespace Library.LMS.ViewModel
         public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice) 
         {
             this.student = student;
-            PageTitle = "Signed in as: " + student.Name;
+            PageTitle = student.Name;
             courseService = Cservice;
             personService = Pservice;
         }
-
 
         string? _pageTitle;
         public string PageTitle
@@ -31,7 +30,7 @@ namespace Library.LMS.ViewModel
             get { return _pageTitle ?? string.Empty; }
             set
             {
-                _pageTitle = value;
+                _pageTitle = "Signed in as: " + value;
                 OnPropertyChanged(nameof(PageTitle));
             }
         }
