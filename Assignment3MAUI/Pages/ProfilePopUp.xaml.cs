@@ -13,9 +13,9 @@ public partial class ProfilePopUp : Popup
         Profile = person;
     }
 
-    private void CancelBtn_Clicked(object sender, EventArgs e) => Close();
+    private void CancelBtn_Clicked(object sender, EventArgs e) => Close(false);
 
-    private async void ChangeBtn_Clicked(object sender, EventArgs e)
+    private void ChangeBtn_Clicked(object sender, EventArgs e)
     {
         if(Name != string.Empty) 
         {
@@ -25,7 +25,7 @@ public partial class ProfilePopUp : Popup
         {
             Profile.Classification = Classification;
         }
-        Close();
+        Close(true);
     }
 
     private void NameEntry_Completed(object sender, EventArgs e)

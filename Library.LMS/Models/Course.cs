@@ -18,6 +18,9 @@ namespace Library.LMS.Models
         private string? _semester;
         public string Semester { get { return _semester ?? string.Empty; } set { _semester = value; } }
 
+        private string? _year;
+        public string Year { get { return _year ?? string.Empty; } set { _year = value; } }
+
         private string? _name;
         public string Name { get { return _name ?? string.Empty;} set { _name = value; } }
 
@@ -39,7 +42,7 @@ namespace Library.LMS.Models
 
         public Course() { }
 
-        public Course(Course previousCourse)
+        public Course(Course previousCourse)    
         {
             Code = previousCourse.Code;
             Name = previousCourse.Name;

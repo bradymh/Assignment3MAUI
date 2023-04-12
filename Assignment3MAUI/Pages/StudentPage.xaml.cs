@@ -30,14 +30,27 @@ public partial class StudentPage : ContentPage
 		await DisplayAlert(viewModel.student.Name, viewModel.StudentInfoGet(),"OK");
     }
 	
-	private void EditProfile(object sender, EventArgs e)
+	private async void EditProfile(object sender, EventArgs e)
 	{
 		var popup = new ProfilePopUp(viewModel.student);
-        this.ShowPopup(popup);
+        var result = await this.ShowPopupAsync(popup);
+
+		if(result is bool boolResult)
+		{
+			if (boolResult)
+			{
+				Refresh();
+			}
+		}
 	}
 
-    private void Refresh(object sender, EventArgs e)
+	private void Refresh()
+	{
+		this.BindingContext = new StudentViewModel(viewModel.student, viewModel.courseService, viewModel.personService);
+	}
+
+    private void RefreshButton(object sender, EventArgs e)
     {
-		this.BindingContext = new StudentViewModel(viewModel.student,viewModel.courseService,viewModel.personService);
-    }
+		Refresh();
+	}
 }

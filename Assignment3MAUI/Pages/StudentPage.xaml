@@ -4,7 +4,7 @@
              x:Class="Assignment3MAUI.StudentPage"
              Title="{Binding PageTitle}"
              NavigationPage.HasBackButton="False">
-    <Grid>
+    <Grid Padding="5,5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -29,10 +29,13 @@
         <HorizontalStackLayout Grid.Row="0">
             <Button
                 Text="Refresh"
-                Clicked="Refresh"/>
+                Clicked="RefreshButton"/>
         </HorizontalStackLayout>
         <VerticalStackLayout Grid.Row="1">
-
+            <HorizontalStackLayout>
+                <Button
+                    Text=""/>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
         <VerticalStackLayout Grid.Row="2">
 
