@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               x:Class="Assignment3MAUI.Pages.ModulePopUp">
+
+    <VerticalStackLayout>
+        <Label Text="{Binding Name}"
+               FontSize="Header"/>
+        <Label Text="{Binding Description}"/>
+        <ListView
+            x:Name="ContentItemList"
+            ItemsSource="{Binding Content}"
+            ItemTapped="ContentItemList_ItemTapped"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button
+            x:Name="ExitBtn"
+            Text="Exit"
+            Clicked="ExitBtn_Clicked"
+            HorizontalOptions="Center"
+            VerticalOptions="End"/>
+
+    </VerticalStackLayout>
+
+</toolkit:Popup>

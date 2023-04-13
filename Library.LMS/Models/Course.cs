@@ -30,7 +30,7 @@ namespace Library.LMS.Models
         private int? _credithours;
         public int CreditHours { get { return _credithours ?? 1; } set { if (value < 0) _credithours = 1; else _credithours = value; } }
 
-        public List<string> Announcments { get; set; } = new List<string>();
+        public List<Announcment> Announcments { get; set; } = new List<Announcment>();
 
         public List<Person> Roster { get; set; } = new List<Person>();
         

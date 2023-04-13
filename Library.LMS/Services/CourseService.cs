@@ -79,6 +79,7 @@ namespace Library.LMS.Services
         public void RemoveModule(Course course, Module module)
         {
             course.Modules.Remove(module);
+            //warn that this will delete all things in modules (if it even does that)
         }
 
         public void AddAssignment(Course course, Assignment assignment)
@@ -89,14 +90,20 @@ namespace Library.LMS.Services
         public void RemoveAssignment(Course course, Assignment assignment)
         {
             course.Assignments.Remove(assignment);
+            //recalculate overall grades plz
         }
 
-        public void AddAnnouncment(Course course, string announcment)
+        public void AddAnnouncment(Course course, Announcment announcment)
         {
             course.Announcments.Add(announcment);
         }
 
-        public List<Course> PersonsCourses(Person person)
+        public void RemoveAnnouncment(Course course, int index)
+        {
+            course.Announcments.RemoveAt(index);
+        }
+
+        public List<Course> GetPersonsCourses(Person person)
         {
             List<Course> list = new();
             foreach(var c in courses)

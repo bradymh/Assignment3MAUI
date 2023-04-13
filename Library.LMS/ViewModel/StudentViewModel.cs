@@ -27,8 +27,8 @@ namespace Library.LMS.ViewModel
             }
         }
 
-        private ObservableCollection<Course> _announcments;
-        public ObservableCollection<Course> Announcments
+        private ObservableCollection<Announcment> _announcments;
+        public ObservableCollection<Announcment> Announcments
         {
             get { return _announcments; }
             private set
@@ -38,8 +38,8 @@ namespace Library.LMS.ViewModel
             }
         }
 
-        private ObservableCollection<Course> _roster;
-        public ObservableCollection<Course> Roster
+        private ObservableCollection<Person> _roster;
+        public ObservableCollection<Person> Roster
         {
             get { return _roster; }
             private set
@@ -49,8 +49,8 @@ namespace Library.LMS.ViewModel
             }
         }
 
-        private ObservableCollection<Course> _assignments;
-        public ObservableCollection<Course> Assignments
+        private ObservableCollection<Assignment> _assignments;
+        public ObservableCollection<Assignment> Assignments
         {
             get { return _assignments; }
             private set
@@ -60,8 +60,8 @@ namespace Library.LMS.ViewModel
             }
         }
 
-        private ObservableCollection<Course> _modules;
-        public ObservableCollection<Course> Modules
+        private ObservableCollection<Module> _modules;
+        public ObservableCollection<Module> Modules
         {
             get { return _modules; }
             private set
@@ -82,19 +82,26 @@ namespace Library.LMS.ViewModel
             }
         }
 
-        public void ListStuff()
-        {
-
-        }
-
         public event PropertyChangedEventHandler? PropertyChanged;
+
         public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice) 
         {
             this.student = student;
-            PageTitle = student.Name;
             courseService = Cservice;
             personService = Pservice;
-            Courses = new ObservableCollection<Course>(courseService.GetCourseList());
+
+            PageTitle = student.Name;
+
+            Courses = new ObservableCollection<Course>(courseService.GetPersonsCourses(student));
+        }
+
+        public StudentViewModel(StudentViewModel viewModel)
+        {
+            this.student = viewModel.student;
+            courseService = viewModel.courseService;
+            personService = viewModel.personService;
+            PageTitle = student.Name;
+            Courses = viewModel.Courses;
         }
 
         string? _pageTitle;
@@ -115,7 +122,16 @@ namespace Library.LMS.ViewModel
 
         public List<Course> GetStudentCourses()
         {
-            return courseService.PersonsCourses(student);
+            return courseService.GetPersonsCourses(student);
+        }
+
+        public void SelectCourse(Course SelectedCourse)
+        {
+            Announcments = new ObservableCollection<Announcment>(SelectedCourse.Announcments);
+            Roster = new ObservableCollection<Person>(SelectedCourse.Roster);
+            Assignments = new ObservableCollection<Assignment>(SelectedCourse.Assignments);
+            Modules = new ObservableCollection<Module>(SelectedCourse.Modules);
+            HomePage = $"{SelectedCourse.Name}\n{SelectedCourse.Description}";
         }
 
         protected virtual void OnPropertyChanged(string propertyName)

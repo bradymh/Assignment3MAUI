@@ -11,6 +11,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -32,7 +33,7 @@
             <ListView
                 x:Name="CourseList"
                 ItemsSource="{Binding Courses}"
-                ItemSelected="CourseSelected"
+                ItemTapped="CourseList_ItemTapped"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -56,9 +57,7 @@
                         x:Name="UnenrollBtn"
                         Clicked="UnenrollBtn_Clicked"/>
         </HorizontalStackLayout>
-        <VerticalStackLayout Grid.Row="2">
-
-        </VerticalStackLayout>
+        
 
         <HorizontalStackLayout Grid.Row="0"
                                Grid.Column="1"
@@ -92,24 +91,88 @@
                         x:Name="PeopleBtn"
                         Clicked="PeopleBtn_Clicked"/>
             </HorizontalStackLayout>
-            <ListView
-                IsVisible="true"
-            x:Name="CourseStuffList"
-            ItemsSource="{Binding Courses}"
-            ItemSelected="CourseStuffList_ItemSelected"
-            >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Name}" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+           
         </VerticalStackLayout>
+        <Label Text="{Binding HomePage}"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   x:Name="HomePageLabel"/>
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            IsVisible="false"
+            x:Name="AnnouncmentsList"
+            ItemsSource="{Binding Announcments}"
+            ItemTapped="AnnouncmentsList_ItemTapped"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Title}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            IsVisible="false"
+            x:Name="AssignmentsList"
+            ItemsSource="{Binding Assignments}"
+            ItemTapped="AssignmentsList_ItemTapped"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding DueDate}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            IsVisible="false"
+            x:Name="ModulesList"
+            ItemsSource="{Binding Modules}"
+            ItemTapped="ModulesList_ItemTapped"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView
+            Grid.Row="2"
+            Grid.Column="1"
+            IsVisible="false"
+            x:Name="RosterList"
+            ItemsSource="{Binding Roster}"
+            SelectionMode="None"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Classification}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         
+
 
     </Grid>
 
