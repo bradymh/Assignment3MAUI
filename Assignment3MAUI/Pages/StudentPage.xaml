@@ -14,6 +14,52 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <HorizontalStackLayout Grid.Row="0">
+            <Button
+                Text="Refresh"
+                Clicked="RefreshButton"/>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="1">
+            <HorizontalStackLayout Grid.Column="0">
+                <Button Text="Current Courses"
+                        x:Name="CurrentCourseBtn"
+                        Clicked="CurrentCourseBtn_Clicked"/>
+                <Button Text="Previous Courses"
+                        x:Name="PreviousCourseBtn"
+                        Clicked="PreviousCourseBtn_Clicked"/>
+            </HorizontalStackLayout>
+            <ListView
+                x:Name="CourseList"
+                ItemsSource="{Binding Courses}"
+                ItemSelected="CourseSelected"
+                >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" />
+                                <Label Text="{Binding Code}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Grid.Row="2"
+                               Grid.Column="0"
+            VerticalOptions="End">
+            <Button Text="Enroll in Course"
+                        x:Name="EnrollBtn"
+                        Clicked="EnrollBtn_Clicked"/>
+            <Button Text="Unenroll in Course"
+                        x:Name="UnenrollBtn"
+                        Clicked="UnenrollBtn_Clicked"/>
+        </HorizontalStackLayout>
+        <VerticalStackLayout Grid.Row="2">
+
+        </VerticalStackLayout>
+
         <HorizontalStackLayout Grid.Row="0"
                                Grid.Column="1"
                                HorizontalOptions="End">
@@ -26,20 +72,45 @@
             <Button Text="Sign Out"
                     Clicked="SignOut"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Row="0">
-            <Button
-                Text="Refresh"
-                Clicked="RefreshButton"/>
-        </HorizontalStackLayout>
-        <VerticalStackLayout Grid.Row="1">
-            <HorizontalStackLayout>
-                <Button
-                    Text=""/>
-            </HorizontalStackLayout>
-        </VerticalStackLayout>
-        <VerticalStackLayout Grid.Row="2">
 
+        <VerticalStackLayout Grid.Column="1"
+                             Grid.Row="1">
+            <HorizontalStackLayout>
+                <Button Text="Home"
+                        x:Name="HomeBtn"
+                        Clicked="HomeBtn_Clicked"/>
+                <Button Text="Announcments"
+                        x:Name="AnnouncmentsBtn"
+                        Clicked="AnnouncmentsBtn_Clicked"/>
+                <Button Text="Assignments"
+                        x:Name="AssignmentsBtn"
+                        Clicked="AssignmentsBtn_Clicked"/>
+                <Button Text="Modules"
+                        x:Name="ModulesBtn"
+                        Clicked="ModulesBtn_Clicked"/>
+                <Button Text="People"
+                        x:Name="PeopleBtn"
+                        Clicked="PeopleBtn_Clicked"/>
+            </HorizontalStackLayout>
+            <ListView
+                IsVisible="true"
+            x:Name="CourseStuffList"
+            ItemsSource="{Binding Courses}"
+            ItemSelected="CourseStuffList_ItemSelected"
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </VerticalStackLayout>
+        
+
     </Grid>
 
 </ContentPage>

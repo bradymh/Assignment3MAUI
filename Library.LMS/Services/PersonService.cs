@@ -10,7 +10,7 @@ namespace Library.LMS.Services
 {
     public class PersonService
     {
-        private List<Person> people = new List<Person>();
+        private List<Person> people = new();
 
         public PersonService() { }
         public PersonService(PersonService service)
@@ -51,7 +51,7 @@ namespace Library.LMS.Services
 
         public List<Person> SearchPeople(string name)
         {
-            List<Person> list = new List<Person>();
+            List<Person> list = new();
             foreach (Person person in people)
             {
                 if (person.Name.Contains(name))
@@ -64,7 +64,7 @@ namespace Library.LMS.Services
 
         public List<Person> ListStudents()
         {
-            List<Person> list = new List<Person>();
+            List<Person> list = new();
             foreach (Person person in people)
             {
                 if (person is Student)
@@ -77,7 +77,7 @@ namespace Library.LMS.Services
 
         public List<Person> ListTeachers()
         {
-            List<Person> list = new List<Person>();
+            List<Person> list = new();
             foreach (Person person in people)
             {
                 if (person is Instructor || person is TA)

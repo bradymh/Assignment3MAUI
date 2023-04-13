@@ -18,13 +18,13 @@ public partial class UserSelectPage : ContentPage
 
 	public void SelectUser(object sender, SelectedItemChangedEventArgs args)
 	{
-		if (args.SelectedItem is Student) 
+		if (args.SelectedItem is Student student) 
 		{
-			user = (Student)args.SelectedItem;
+			user = student;
 		}
-		else if(args.SelectedItem is Instructor)
+		else if(args.SelectedItem is Instructor instructor)
 		{
-			user = (Instructor)args.SelectedItem;
+			user = instructor;
 		}
 		else
 		{

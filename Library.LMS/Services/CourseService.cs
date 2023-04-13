@@ -10,7 +10,7 @@ namespace Library.LMS.Services
 {
     public class CourseService
     {
-        private List<Course> courses = new List<Course>();
+        private List<Course> courses = new();
         
         public CourseService() { }
         public CourseService(CourseService service)
@@ -51,21 +51,23 @@ namespace Library.LMS.Services
         public void AddPerson(Course course, Person person)
         {
             course.Roster.Add(person);
-            if(person is Student)
+            if (person is Student student)
             {
-                Student student = (Student)person;
                 course.StudentGrades.Add(student, 0);
                 student.AddGrade(course, 0);
             }
         }
 
-        public void removePerson(Course course, Person person)
+        public void RemovePerson(Course course, Person person)
         {
             course.Roster.Remove(person);
-            course.StudentGrades.Remove((Student)person);
-            foreach(var a in course.Assignments)
+            if(person is Student student)
             {
-                a.RemoveGrade((Student)person);
+                course.StudentGrades.Remove(student);
+                foreach (var a in course.Assignments)
+                {
+                    a.RemoveGrade(student);
+                }
             }
         }
 
@@ -94,8 +96,25 @@ namespace Library.LMS.Services
             course.Announcments.Add(announcment);
         }
 
+        public List<Course> PersonsCourses(Person person)
+        {
+            List<Course> list = new();
+            foreach(var c in courses)
+            {
+                foreach (var r in c.Roster)
+                {
+                    if(person.Id == r.Id)
+                    {
+                        list.Add(c);
+                        break;
+                    }
+                }
+            }
+            return list;
+        }
+
         //using exact name
-        public Course findCourse(string courseName)
+        public Course FindCourse(string courseName)
         {
             foreach (Course a in courses)
             {
@@ -107,7 +126,7 @@ namespace Library.LMS.Services
         //courses that contain the info
         public List<Course> SearchForCourses(string info)
         {
-            List<Course> courseList = new List<Course>();
+            List<Course> courseList = new();
 
             foreach(var c in courses)
             {
@@ -119,7 +138,7 @@ namespace Library.LMS.Services
             return courseList;
         }
 
-        public List<Course> getCourseList()
+        public List<Course> GetCourseList()
         {
             return courses;
         }
