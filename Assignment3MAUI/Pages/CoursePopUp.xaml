@@ -2,7 +2,7 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-               x:Class="Assignment3MAUI.Pages.ModulePopUp">
+               x:Class="Assignment3MAUI.Pages.CoursePopUp">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -10,33 +10,28 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
                 <VerticalStackLayout>
-        <Label Text="{Binding Name}"
+        <Label Text="Courses"
                FontSize="Header"/>
-        <Label Text="{Binding Description}"/>
         <ListView
-            x:Name="ContentItemList"
-            ItemsSource="{Binding Content}"
-            ItemTapped="ContentItemList_ItemTapped"
+            x:Name="CourseList"
+            ItemsSource="{Binding Courses}"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout>
                             <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Code}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
                 </VerticalStackLayout>
-                <Button
-            x:Name="ExitBtn"
-            Text="Exit"
-            Clicked="ExitBtn_Clicked"
-            HorizontalOptions="Center"
-            VerticalOptions="End"
-            Grid.Row="1"/>
-
+                <Button Text="Exit"
+                Clicked="Button_Clicked"
+                VerticalOptions="End"
+                Grid.Row="1"/>
     </Grid>
 
 </toolkit:Popup>

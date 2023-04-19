@@ -11,11 +11,20 @@ namespace Library.LMS.Services
     public class CourseService
     {
         private List<Course> courses = new();
+ 
+        private string year;
+        private string currentSemester;
         
-        public CourseService() { }
+        public CourseService() 
+        {
+            year = "2023";
+            currentSemester = "Fall"; 
+        }
         public CourseService(CourseService service)
         {
             this.courses = service.courses;
+            year = service.year;
+            currentSemester = service.currentSemester;
         }
 
         public void AddCourse(Course course) 
@@ -120,6 +129,25 @@ namespace Library.LMS.Services
             return list;
         }
 
+        public List<Course> GetCurrentPersonsCourses(Person person)
+        {
+            List<Course> list = new();
+            foreach(var c in courses)
+            {
+                if(c.Year == this.year && c.Semester == this.currentSemester)
+                {
+                    foreach(var r in c.Roster)
+                    {
+                        if(person.Id == r.Id)
+                        {
+                            list.Add(c);
+                            break;
+                        }
+                    }
+                }
+            }
+            return list;
+        }
         //using exact name
         public Course FindCourse(string courseName)
         {

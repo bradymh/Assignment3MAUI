@@ -1,12 +1,7 @@
 ﻿using Library.LMS.Models;
 using Library.LMS.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library.LMS.ViewModel
 {
@@ -84,7 +79,7 @@ namespace Library.LMS.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice) 
+        public StudentViewModel(Student student, CourseService Cservice, PersonService Pservice)
         {
             this.student = student;
             courseService = Cservice;
@@ -92,7 +87,7 @@ namespace Library.LMS.ViewModel
 
             PageTitle = student.Name;
 
-            Courses = new ObservableCollection<Course>(courseService.GetPersonsCourses(student));
+            Courses = new ObservableCollection<Course>(courseService.GetCurrentPersonsCourses(student));
         }
 
         public StudentViewModel(StudentViewModel viewModel)
@@ -114,10 +109,15 @@ namespace Library.LMS.ViewModel
                 OnPropertyChanged(nameof(PageTitle));
             }
         }
-          
+
         public string StudentInfoGet()
         {
             return $"ID: {student.Id}\nClassification: {student.Classification}\nGPA: {student.GPA}";
+        }
+
+        public List<Course> GetCurrentStudentCourses()
+        {
+            return courseService.GetCurrentPersonsCourses(student);
         }
 
         public List<Course> GetStudentCourses()

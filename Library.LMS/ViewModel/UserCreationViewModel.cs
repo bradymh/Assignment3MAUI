@@ -11,7 +11,7 @@ namespace Library.LMS.ViewModel
 {
     public class UserCreationViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public bool isStudent;
         private PersonService personService;
 

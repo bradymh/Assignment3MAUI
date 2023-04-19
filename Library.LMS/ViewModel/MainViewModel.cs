@@ -15,7 +15,7 @@ namespace Library.LMS.ViewModel
         public CourseService courseService { get; private set; }
         public PersonService personService { get; private set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public MainViewModel(CourseService courseService, PersonService personService)
         {

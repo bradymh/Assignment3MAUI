@@ -55,7 +55,7 @@ namespace Library.LMS.Models
             StudentGrades = previousCourse.StudentGrades;
         }
 
-        public Course(string c, string n, string d, int hours)
+        public Course(string c, string n, string d, int hours, string s, string y)
         {
             CourseId = NewId();
             CoursePrefix = c;
@@ -63,6 +63,8 @@ namespace Library.LMS.Models
             Name = n;
             Description = d;
             CreditHours = hours;
+            Semester = s;
+            Year = y;
         }
 
         public override string ToString()

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ViewModel\UserCreationViewModel.cs~RF76622ed.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CommunityToolkit.Maui" Version="5.0.0" />
   </ItemGroup>
 
