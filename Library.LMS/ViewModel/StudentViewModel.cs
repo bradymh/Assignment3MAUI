@@ -125,6 +125,16 @@ namespace Library.LMS.ViewModel
             return courseService.GetPersonsCourses(student);
         }
 
+        public void SetCurrentCourses()
+        {
+            Courses = new ObservableCollection<Course>(GetCurrentStudentCourses());
+        }
+        
+        public void SetPreviousCourses()
+        {
+            Courses = new ObservableCollection<Course>(GetStudentCourses());
+        }
+
         public void SelectCourse(Course SelectedCourse)
         {
             Announcments = new ObservableCollection<Announcment>(SelectedCourse.Announcments);

@@ -17,6 +17,7 @@ public partial class ModulePopUp : Popup
 
     private void ContentItemList_ItemTapped(object sender, ItemTappedEventArgs e)
     {
+		
 		//is it bad to have this many popups in a row
 		//Who knows!!!
     }

@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace Assignment3MAUI.Pages;
 
-public partial class CoursePopUp : Popup
+public partial class CourseEnrollPopUp : Popup
 {
     private ObservableCollection<Course> _courses;
     public ObservableCollection<Course> Courses
@@ -17,7 +17,7 @@ public partial class CoursePopUp : Popup
         }
     }
 
-    public CoursePopUp(List<Course> courses)
+    public CourseEnrollPopUp(List<Course> courses)
 	{
 		InitializeComponent();
         Courses = new ObservableCollection<Course>(courses);
@@ -25,4 +25,14 @@ public partial class CoursePopUp : Popup
 	}
 
 	private void Button_Clicked(object sender, EventArgs e) => Close();
+
+    private void CourseSearchEntry_Completed(object sender, EventArgs e)
+    {
+
+    }
+
+    private void CourseSearchEntry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+    }
 }

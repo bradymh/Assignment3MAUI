@@ -125,11 +125,16 @@ public partial class StudentPage : ContentPage
         RosterList.IsVisible = true;
     }
 
+    private void CurrentCourseBtn_Clicked(object sender, EventArgs e)
+    {
+        ViewModel.SetCurrentCourses();
+        Refresh();
+    }
+
     private void PreviousCourseBtn_Clicked(object sender, EventArgs e)
     {
-        List<Course> list = new List<Course>(ViewModel.GetStudentCourses());
-        var popup = new CoursePopUp(list);
-        this.ShowPopup(popup);
+        ViewModel.SetPreviousCourses();
+        Refresh();
     }
 
     private void EnrollBtn_Clicked(object sender, EventArgs e)
@@ -142,5 +147,4 @@ public partial class StudentPage : ContentPage
 
     }
 
-    
 }

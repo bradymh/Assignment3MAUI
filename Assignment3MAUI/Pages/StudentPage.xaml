@@ -23,6 +23,9 @@
         </HorizontalStackLayout>
         <VerticalStackLayout Grid.Row="1">
             <HorizontalStackLayout Grid.Column="0">
+                <Button Text="Current Courses"
+                        x:Name="CurrentCourseBtn"
+                        Clicked="CurrentCourseBtn_Clicked"  />
                 <Button Text="Previous Courses"
                         x:Name="PreviousCourseBtn"
                         Clicked="PreviousCourseBtn_Clicked"/>
