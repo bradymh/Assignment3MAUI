@@ -20,6 +20,7 @@
         <ListView
             x:Name="CourseList"
             ItemsSource="{Binding Courses}"
+            ItemTapped="CourseList_ItemTapped"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>

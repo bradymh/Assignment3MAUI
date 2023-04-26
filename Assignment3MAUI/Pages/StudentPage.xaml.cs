@@ -139,12 +139,14 @@ public partial class StudentPage : ContentPage
 
     private void EnrollBtn_Clicked(object sender, EventArgs e)
     {
-
+        var popup = new CourseEnrollPopUp(ViewModel.personService,ViewModel.courseService,ViewModel.student,true);
+        this.ShowPopup(popup);
     }
 
     private void UnenrollBtn_Clicked(object sender, EventArgs e)
     {
-
+        var popup = new CourseEnrollPopUp(ViewModel.personService, ViewModel.courseService, ViewModel.student, false);
+        this.ShowPopup(popup);
     }
 
 }

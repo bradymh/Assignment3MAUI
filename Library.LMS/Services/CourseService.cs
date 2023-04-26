@@ -165,7 +165,7 @@ namespace Library.LMS.Services
 
             foreach(var c in courses)
             {
-                if(c.Name.Contains(info) || c.Description.Contains(info))
+                if(c.Name.Contains(info) || c.Code.Contains(info))
                 {
                     courseList.Add(c);
                 }
